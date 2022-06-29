@@ -5,7 +5,7 @@ class Paciente:
     __Telefono=""
     __Peso=""
     __Altura=""
-    def __init__(self, Nombre, Apellido, Telefono, Peso, Altura):
+    def __init__(self, Apellido, Nombre, Telefono, Peso, Altura):
         try:
             self.__Nombre=Nombre
             self.__Apellido=Apellido

@@ -32,7 +32,6 @@ class ControladorPacientes():
         paciente = self.repo.modificarPaciente(detallespaciente)
         self.pacientes[self.seleccion] = paciente
         self.vista.modificarPaciente(paciente, self.seleccion)
-        self.seleccion=-1
     def borrarPaciente(self):
         if self.seleccion==-1:
             return

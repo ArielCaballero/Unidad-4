@@ -14,8 +14,8 @@
         {
             "__class__": "Paciente",
             "__atributos__": {
-                "Nombre": "Perez",
-                "Apellido": "Juan",
+                "Nombre": "Juan",
+                "Apellido": "Perez",
                 "Telefono": "261212412",
                 "Peso": 71.0,
                 "Altura": 175.0
@@ -28,6 +28,26 @@
                 "Apellido": "Flores",
                 "Telefono": "264512512",
                 "Peso": 80.0,
+                "Altura": 170.0
+            }
+        },
+        {
+            "__class__": "Paciente",
+            "__atributos__": {
+                "Nombre": "Agustin",
+                "Apellido": "Hernandez",
+                "Telefono": "26125112",
+                "Peso": 90.0,
+                "Altura": 190.0
+            }
+        },
+        {
+            "__class__": "Paciente",
+            "__atributos__": {
+                "Nombre": "Posible",
+                "Apellido": "Kim",
+                "Telefono": "261512341",
+                "Peso": 70.0,
                 "Altura": 170.0
             }
         }
