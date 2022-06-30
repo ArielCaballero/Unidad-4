@@ -107,9 +107,17 @@ class Calculadora(object):
                 self.__operador.set(op)
                 self.__operadorAux=op
             else:
-                operacion=self.__operador.get()
-                self.__segundoOperando=int(self.__panel.get())
-                self.resolverOperacion(self.__primerOperando, operacion, self.__segundoOperando)
-                self.__operador.set(op)
-                self.__operadorAux=op
+                if "/" in self.__panel.get():
+                    operacion=self.__operador.get()
+                    operando=self.__panel.get().split("/")
+                    self.__segundoOperando=Fraccion(int(operando[0]),int(operando[1]))
+                    self.resolverOperacion(self.__primerOperando, operacion, self.__segundoOperando)
+                    self.__operador.set(op)
+                    self.__operadorAux=op
+                else:
+                    operacion=self.__operador.get()
+                    self.__segundoOperando=int(self.__panel.get())
+                    self.resolverOperacion(self.__primerOperando, operacion, self.__segundoOperando)
+                    self.__operador.set(op)
+                    self.__operadorAux=op
     
