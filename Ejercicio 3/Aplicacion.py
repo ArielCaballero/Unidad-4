@@ -32,8 +32,8 @@ class Aplicacion():
         Label(mainframe, text="pesos").grid(column=3, row=2, sticky=W)
         for child in mainframe.winfo_children():
             child.grid_configure(padx=5, pady=5)
-            self.dolaresEntry.focus()
-            self.__ventana.mainloop()
+        self.dolaresEntry.focus()
+        self.__ventana.mainloop()
     def calcular(self, *args):
         if self.dolaresEntry.get()!='':
             try:
