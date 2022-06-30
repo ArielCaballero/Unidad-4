@@ -39,8 +39,7 @@ class Aplicacion():
         self.TotalEntry.pack(side=RIGHT, fill=BOTH, expand=True,padx=5, pady=5)
         Button(frame5, text="Calcular", bg="green", font=("Arial", 14), relief='flat',command=self.calcular).pack(side=LEFT, fill=BOTH, expand=True,padx=5, pady=5)
         Button(frame5, text="Salir", bg="red", font=("Arial", 14), relief='flat',command=self.salir).pack(side=RIGHT, fill=BOTH, expand=True,padx=5, pady=5)
-        for child in self.__ventana.winfo_children():
-            self.__ventana.mainloop()
+        self.__ventana.mainloop()
     def salir(self):
         self.__ventana.destroy()
     def calcular(self, *args):
