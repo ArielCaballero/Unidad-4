@@ -26,7 +26,7 @@ class Calculadora(object):
         operatorEntry=ttk.Entry(mainframe, width=10, textvariable=self.__operador, justify='center', state='disabled')
         operatorEntry.grid(column=1, row=1, columnspan=1, sticky=(W,E))
         panelEntry = ttk.Entry(mainframe, width=20, textvariable=self.__panel, justify='right',state='disabled')
-        panelEntry.grid(column=2, row=1, columnspan=3, sticky=(W, E))
+        panelEntry.grid(column=2, row=1, columnspan=2, sticky=(W, E))
         ttk.Button(mainframe, text='1', command=partial(self.ponerNUMERO, '1')).grid(column=1, row=3, sticky=W)
         ttk.Button(mainframe, text='2', command=partial(self.ponerNUMERO,'2')).grid(column=2, row=3, sticky=W)
         ttk.Button(mainframe, text='3', command=partial(self.ponerNUMERO,'3')).grid(column=3, row=3, sticky=W)
@@ -43,7 +43,8 @@ class Calculadora(object):
         ttk.Button(mainframe, text='%', command=partial(self.ponerOPERADOR, '%')).grid(column=4, row=6, sticky=W)
         ttk.Button(mainframe, text='/', command=partial(self.ponerNUMERO, '/')).grid(column=2, row=6, sticky=W)
         ttk.Button(mainframe, text='=', command=partial(self.ponerOPERADOR, '=')).grid(column=3, row=6, sticky=W)
-        self.__panel.set('0')
+        ttk.Button(mainframe, text='C', command=(self.Clear)).grid(column=4, row=1, sticky=W)
+        self.__panel.set('')
         panelEntry.focus()
         self.__ventana.mainloop()
     def ponerNUMERO(self, numero):
@@ -62,7 +63,13 @@ class Calculadora(object):
                 self.__primerOperando=int(valor)
                 self.__panel.set(numero)
     def borrarPanel(self):
-        self.__panel.set('0')
+        self.__panel.set('')
+    def Clear(self):
+        self.__panel.set('')
+        self.__operador.set('')
+        self.__primerOperando=0
+        self.__segundoOperando=0
+        self.__operadorAux=None
     def resolverOperacion(self, operando1, operacion, operando2):
         resultado=0
         if operacion=='+':
@@ -75,7 +82,10 @@ class Calculadora(object):
                     resultado=operando1*operando2
                 else:
                     if operacion=='%':
-                        resultado=operando1/operando2
+                        if type(operando1)==Fraccion or type(operando2)==Fraccion:
+                            resultado=operando1%operando2
+                        else:
+                            resultado=operando1/operando2
         self.__panel.set(str(resultado))
     def ponerOPERADOR(self, op):
         if op=='=':
@@ -102,11 +112,4 @@ class Calculadora(object):
                 self.resolverOperacion(self.__primerOperando, operacion, self.__segundoOperando)
                 self.__operador.set(op)
                 self.__operadorAux=op
-def main():
-    calculadora=Calculadora()
     
-if __name__=='__main__':
-    main()
-
-
-

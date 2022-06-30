@@ -1,6 +1,6 @@
-from Aplicacion import Aplicacion
+from Aplicacion import Calculadora
 
 if __name__=='__main__':
-    app = Aplicacion()
+    app = Calculadora()
     app.mainloop()
     
